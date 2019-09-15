@@ -9,8 +9,15 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
+
+<p>
   <string>first post</string>
-  <%= @user.microposts.first.content %>
+  <% if @user.microposts.first.nil? %>
+    まだPOSTはない
+  <% else %>
+    <%= @user.microposts.first.content %>
+  <% end %>
+</p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
